@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-card: #161616;
+  --border: #1f1f1f;
+  --accent: #E8FF3B;
+  --accent2: #FF4545;
+  --text: #f0f0f0;
+  --muted: #555555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(232,255,59,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,255,59,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: 'DM Mono', monospace;
+}
+
+/* Accent color */
+.text-accent {
+  color: var(--accent);
+}
+
+.text-accent2 {
+  color: var(--accent2);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.border-surface {
+  border-color: var(--border);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(22, 22, 22, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(232, 255, 59, 0.15);
+}
+
+.glow-accent-sm {
+  box-shadow: 0 0 10px rgba(232, 255, 59, 0.1);
+}
+
+/* Button base */
+.btn-primary {
+  background-color: var(--accent);
+  color: #000;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #d4e835;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(232, 255, 59, 0.3);
+}
+
+/* Toggle button */
+.toggle-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-btn.active {
+  border-color: var(--accent);
+  background: rgba(232, 255, 59, 0.1);
+  color: var(--accent);
+}
+
+.toggle-btn:hover:not(.active) {
+  border-color: #333;
+  color: var(--text);
+}
+
+/* Input */
+.input-dark {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  width: 100%;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.input-dark:focus {
+  border-color: var(--accent);
+}
+
+.input-dark::placeholder {
+  color: var(--muted);
+}
+
+/* Range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  background: var(--border);
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -8px;
+  background-color: var(--accent);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.1s;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Pulsing dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* Chat bubbles */
+.bubble-user {
+  background-color: var(--accent);
+  color: #000;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.bubble-ai {
+  background-color: var(--bg-card);
+  color: var(--text);
+  border-radius: 18px 18px 18px 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Section spacing */
+.section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* Page wrapper */
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+/* Number input */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+/* Loading dots */
+@keyframes loadingBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.loading-dot {
+  animation: loadingBounce 1.4s infinite ease-in-out;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+/* Prose for AI responses */
+.ai-prose p { margin-bottom: 10px; }
+.ai-prose ul, .ai-prose ol { margin-left: 20px; margin-bottom: 10px; }
+.ai-prose li { margin-bottom: 4px; }
+.ai-prose strong { color: var(--accent); }
+
+/* ============================================
+   RESPONSIVE CONTAINER & HELPERS
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+/* Day tabs — horizontal scroll on mobile */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-wrap: nowrap;
+}
+.day-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* BMI layout — 2 col desktop, 1 col mobile */
+@media (max-width: 768px) {
+  .bmi-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Inputs row — 2 col desktop, 1 col small mobile */
+@media (max-width: 480px) {
+  .inputs-row {
+    grid-template-columns: 1fr !important;
+  }
+  .suggested-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   GLOBAL MOBILE OVERRIDES
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide on mobile */
+  .hide-mobile { display: none !important; }
+
+  /* Stack on mobile */
+  .stack-mobile {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Full width on mobile */
+  .full-mobile {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Smaller section padding on mobile */
+  .section {
+    padding: 48px 0 !important;
+  }
+
+  /* Toggle buttons smaller on mobile */
+  .toggle-btn {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+  }
+
+  /* CTA banner padding */
+  .cta-banner {
+    padding: 60px 16px !important;
+  }
+
+  /* Touch targets — minimum 44px */
+  button, a {
+    min-height: 44px;
+  }
+  .toggle-btn {
+    min-height: 40px;
+    min-width: 40px;
+  }
+
+  /* Prevent font zoom on input focus on iOS */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+
+  /* Better tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(232, 255, 59, 0.1);
+  }
+
+  /* Page wrapper top padding */
+  .page-wrapper {
+    padding-top: 72px;
+  }
+}
+
+/* Hero CTA full width on very small screens */
+@media (max-width: 480px) {
+  .hero-cta a, .hero-cta button {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .cta-banner a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex !important;
+  }
+}
