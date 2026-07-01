@@ -3,11 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
-  const [chatHistory, setChatHistory] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('fitforge_chat') || '[]');
-    } catch { return []; }
-  });
+  const [chatHistory, setChatHistory] = useState([]);
 
   const [conversations, setConversations] = useState(() => {
     try {
