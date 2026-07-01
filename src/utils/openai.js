@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
-const GROQ_URL = '/groq/openai/v1/chat/completions';
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 export const systemPrompt = `You are FitForge AI, an expert personal trainer and nutritionist.
 You provide specific, actionable fitness and nutrition advice.
