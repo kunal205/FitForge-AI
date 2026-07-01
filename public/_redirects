@@ -1,0 +1,5 @@
+# Proxy Groq API calls through Netlify to avoid CORS and hide the key
+/groq/*  https://api.groq.com/:splat  200
+
+# SPA fallback — serve index.html for all client-side routes
+/*  /index.html  200
